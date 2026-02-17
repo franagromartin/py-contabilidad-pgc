@@ -1,0 +1,8 @@
+sqlalchemy
+alembic
+pydantic
+babel
+python-dateutil
+reportlab
+openpyxl
+python-dotenv
