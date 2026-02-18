@@ -1,15 +1,20 @@
-# Reglas del Proyecto: Contabilidad Python
+# Reglas del Proyecto: Contabilidad Luyra v3.0
 
-- [cite_start]**Normativa:** Seguir el Plan General Contable (PGC 2007) de España[cite: 299].
-- **Finanzas:** Prohibido usar `float`. [cite_start]Usar siempre `Decimal` para importes y `babel` para formateo[cite: 291, 298].
-- [cite_start]**Ecuación Contable:** Validar siempre que Debe == Haber en cada asiento[cite: 284].
-- [cite_start]**Arquitectura:** Respetar el patrón Repositorio y la separación entre Modelos y Servicios [cite: 37-52].
-- [cite_start]**Código:** Aplicar Type Hints, Black para formateo y Google Style para docstrings [cite: 286-294].
-- [cite_start]**Seguridad:** Los asientos en ejercicios cerrados son inmutables [cite: 301-302].
-## ROLES
-- **Arquitecto:** Responsable de la estructura del proyecto, patrones de diseño y escalabilidad.
-- **Contable:** Verifica la normativa PGC, la lógica financiera y la integridad de los datos contables.
-- **QA:** Asegura la calidad del código, la cobertura de tests y la ausencia de regresiones.
+## 1. NORMAS DE ORO (CONTABILIDAD)
+- **Precisión:** PROHIBIDO usar `float`. Uso obligatorio de `Decimal` (Python) y `Numeric(12,2)` (DB).
+- **Partida Doble:** Validar siempre que $\sum Debe == \sum Haber$ en cada asiento. Error permitido: 0.00.
+- [cite_start]**Inmutabilidad:** Los asientos no se borran; se anulan con contrapartida para mantener trazabilidad[cite: 191].
+- **PGC 2007:** Respetar la jerarquía y normativa del Plan General Contable español.
 
-## FUTURO: Hito 4
-- **LangExtract:** Utilizar LangExtract para la internacionalización y gestión de cadenas de texto en el Hito 4.
+## 2. ROLES Y ARQUITECTURA
+- [cite_start]**Arquitecto:** Vigila la separación entre Modelos y Servicios (Service Layer) [cite: 37-52].
+- [cite_start]**Contable:** Verifica que el IVA y las cuentas (400, 430, 472, 477) se usen correctamente [cite: 185-186].
+- **QA:** Asegura Type Hints, formato Black y cobertura de tests unitarios.
+
+## 3. HITO 4: OCR CON LANGEXTRACT
+- [cite_start]**Motor:** Usar **LangExtract** para la extracción estructurada de datos de facturas (OCR local) [cite: 89-90].
+- [cite_start]**Campos Críticos:** Extraer siempre NIF Proveedor, Fecha, Número Factura, Base Imponible, Tipo IVA y Total .
+- [cite_start]**Validación:** Comprobar matemáticamente que Base + IVA = Total antes de proponer el asiento[cite: 105].
+
+## 4. CALIDAD DE CÓDIGO
+- Aplicar Google Style para docstrings y asegurar que cada servicio sea independiente.
