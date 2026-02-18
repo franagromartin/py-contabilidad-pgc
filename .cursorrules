@@ -1,0 +1,15 @@
+# Reglas del Proyecto: Contabilidad Python
+
+- [cite_start]**Normativa:** Seguir el Plan General Contable (PGC 2007) de España[cite: 299].
+- **Finanzas:** Prohibido usar `float`. [cite_start]Usar siempre `Decimal` para importes y `babel` para formateo[cite: 291, 298].
+- [cite_start]**Ecuación Contable:** Validar siempre que Debe == Haber en cada asiento[cite: 284].
+- [cite_start]**Arquitectura:** Respetar el patrón Repositorio y la separación entre Modelos y Servicios [cite: 37-52].
+- [cite_start]**Código:** Aplicar Type Hints, Black para formateo y Google Style para docstrings [cite: 286-294].
+- [cite_start]**Seguridad:** Los asientos en ejercicios cerrados son inmutables [cite: 301-302].
+## ROLES
+- **Arquitecto:** Responsable de la estructura del proyecto, patrones de diseño y escalabilidad.
+- **Contable:** Verifica la normativa PGC, la lógica financiera y la integridad de los datos contables.
+- **QA:** Asegura la calidad del código, la cobertura de tests y la ausencia de regresiones.
+
+## FUTURO: Hito 4
+- **LangExtract:** Utilizar LangExtract para la internacionalización y gestión de cadenas de texto en el Hito 4.
